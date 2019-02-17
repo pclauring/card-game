@@ -1,0 +1,1 @@
+export const LOAD_GAME_SUCCESS = 'LOAD_GAME_SUCCESS';
