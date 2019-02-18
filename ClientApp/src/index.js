@@ -17,6 +17,7 @@ const history = createBrowserHistory({ basename: baseUrl });
 const initialState = window.initialReduxState;
 const store = configureStore(history, initialState);
 store.dispatch(loadGame());
+console.log(store.getState());
 
 const rootElement = document.getElementById('root');
 

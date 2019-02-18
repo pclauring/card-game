@@ -1,3 +1,5 @@
 export default {
-    game: []
+    game: {
+        deck: []
+    }
    };

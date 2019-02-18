@@ -13,16 +13,34 @@ namespace card_game.Controllers
         [HttpGet("[action]")]
         public Game loadGame()
         {
-            string[] cards = new string[] {"1","2","3","4"};
+            string[] suits = new string[] {"Hearts","Diamonds","Clubs","Spades"};
+            //Make sample deck
+            List<Card> cards = new List<Card> ();
+            Random random = new Random();
+            foreach (var suit in suits)
+            {
+                cards.Add(new Card{
+                    Suit = suit,
+                    Value = random.Next(0,10),
+            });
+            }
+            
+
             return new Game
             {
-                Cards = cards
+                Deck = cards
             };
         }
 
         public class Game
         {
-            public string[] Cards { get; set; }
+            public List<Card> Deck { get; set; }
         }
+    }
+
+    public class Card
+    {
+        public string Suit {get; set;}
+        public int Value {get; set;}
     }
 }

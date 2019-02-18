@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as gameActions from '../../actions/gameActions';
+import Game from './Game';
 
 class CardGamePage extends React.Component {
     constructor(props, context) {
@@ -13,7 +14,7 @@ class CardGamePage extends React.Component {
     render() {
         return (
             <div>
-                <h1>{this.props.game.cards}</h1>
+                <Game game={this.props.game}/>
             </div>
         )
     }
