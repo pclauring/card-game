@@ -1,2 +1,2 @@
 export const LOAD_GAME_SUCCESS = 'LOAD_GAME_SUCCESS';
-export const DRAW_HAND = 'DRAW_HAND';
+export const DRAW_CARD = 'DRAW_CARD';

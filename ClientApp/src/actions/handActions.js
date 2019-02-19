@@ -1,6 +1,5 @@
 import * as types from  './actionTypes';
 
-export function drawHand(hand){
-    debugger;
-    return { type: types.DRAW_HAND, hand }
+export function drawCard(card){
+    return { type: types.DRAW_CARD, card }
 }

@@ -18,9 +18,8 @@ class Game extends React.Component {
 
     drawHand(event) {
         event.preventDefault();
-        var hand = this.props.game.deck.splice(0, 3)
-
-        this.props.actions.drawHand(hand);
+        var card = this.props.game.deck[0];
+        this.props.actions.drawCard(card);
 
     }
 
@@ -40,6 +39,7 @@ class Game extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
+    console.log('Hand in state:' + state.hand.length);
     return {
         game: state.game,
         hand: state.hand
