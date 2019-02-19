@@ -1,17 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as gameActions from '../../actions/gameActions';
+import * as handActions from '../../actions/handActions';
 import Hand from '../hand/Hand';
-
-// const Card = ({ value, suit }) => {
-//     return (
-//         <div className="card-body">
-//             <h1>{value}</h1>
-//             <h1>{suit}</h1>
-//         </div>);
-// }
-
 
 var divStyle = {
     display: 'flex'
@@ -22,12 +13,27 @@ class Game extends React.Component {
         super(props, context);
         this.state = {
         };
+        this.drawHand = this.drawHand.bind(this);
+    }
+
+    drawHand(event) {
+        event.preventDefault();
+        var hand = this.props.game.deck.splice(0, 3)
+
+        this.props.actions.drawHand(hand);
+
     }
 
     render() {
         return (
             <div style={divStyle}>
-                <Hand deck={this.props.game.deck} />
+            <input 
+                type="submit"
+                value="Draw Hand"
+                className="btn btn-primary"
+                onClick={this.drawHand}
+                /> 
+               {this.props.hand && <Hand hand={this.props.hand} />}
             </div>
         )
     }
@@ -35,13 +41,14 @@ class Game extends React.Component {
 
 function mapStateToProps(state, ownProps) {
     return {
-        game: state.game
+        game: state.game,
+        hand: state.hand
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(gameActions, dispatch)
+        actions: bindActionCreators(handActions, dispatch)
     };
 }
 

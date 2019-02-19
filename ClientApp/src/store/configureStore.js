@@ -4,9 +4,11 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import * as Counter from './Counter';
 import * as WeatherForecasts from './WeatherForecasts';
 import game from '../reducers/gameReducer';
+import hand from '../reducers/handReducer';
 
 export default function configureStore (history, initialState) {
   const reducers = {
+    hand: hand,
     game: game,
     counter: Counter.reducer,
     weatherForecasts: WeatherForecasts.reducer
