@@ -2,14 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as gameActions from '../../actions/gameActions';
+import Card from '../card/Card';
 
-const Card = ({ value, suit }) => {
-    return (
-        <div>
-            <h1>{value}</h1>
-            <h1>{suit}</h1>
-        </div>);
-}
+// const Card = ({ value, suit }) => {
+//     return (
+//         <div className="card-body">
+//             <h1>{value}</h1>
+//             <h1>{suit}</h1>
+//         </div>);
+// }
+
+
+var divStyle = {
+    display: 'flex'
+  };
 
 class Game extends React.Component {
     constructor(props, context) {
@@ -20,7 +26,7 @@ class Game extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={divStyle}>
                 {this.props.game.deck.map(card => <Card {...card} />)}
             </div>
         )
@@ -28,7 +34,6 @@ class Game extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    console.log(state.game.deck);
     return {
         game: state.game
     };
