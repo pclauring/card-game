@@ -5,6 +5,9 @@
     transition: top ease 0.5s;
     height: 120px;
     width: 80px;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
 }
 
 .game-card:hover {

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as gameActions from '../../actions/gameActions';
-import Card from '../card/Card';
+import Hand from '../hand/Hand';
 
 // const Card = ({ value, suit }) => {
 //     return (
@@ -27,7 +27,7 @@ class Game extends React.Component {
     render() {
         return (
             <div style={divStyle}>
-                {this.props.game.deck.map(card => <Card {...card} />)}
+                <Hand deck={this.props.game.deck} />
             </div>
         )
     }
