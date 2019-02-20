@@ -19,9 +19,11 @@ namespace card_game.Controllers
             Random random = new Random();
             foreach (var suit in suits)
             {
+                int cardValue = random.Next(0,10);
                 cards.Add(new Card{
+                    id = suit + "-" + cardValue.ToString(),
                     Suit = suit,
-                    Value = random.Next(0,10),
+                    Value = cardValue,
             });
             }
             
@@ -40,6 +42,7 @@ namespace card_game.Controllers
 
     public class Card
     {
+        public string id {get; set;}
         public string Suit {get; set;}
         public int Value {get; set;}
     }

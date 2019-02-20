@@ -3,20 +3,18 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as handActions from '../../actions/handActions';
 import Hand from '../hand/Hand';
-
-var divStyle = {
-    display: 'flex'
-  };
+import Deck from '../deck/Deck';
+import './Game.css';
 
 class Game extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
         };
-        this.drawHand = this.drawHand.bind(this);
+        this.drawCard = this.drawCard.bind(this);
     }
 
-    drawHand(event) {
+    drawCard(event) {
         event.preventDefault();
         var card = this.props.game.deck[0];
         this.props.actions.drawCard(card);
@@ -25,13 +23,15 @@ class Game extends React.Component {
 
     render() {
         return (
-            <div style={divStyle}>
-            <input 
+            <div className="game-container">
+            {/* <input 
                 type="submit"
                 value="Draw Hand"
                 className="btn btn-primary"
-                onClick={this.drawHand}
-                /> 
+                onClick={this.drawCard}
+                />  */}
+                
+                {this.props.game.deck.length > 0 && <Deck deck={this.props.game.deck} drawCard={this.drawCard} />}
                {this.props.hand && <Hand hand={this.props.hand} />}
             </div>
         )
