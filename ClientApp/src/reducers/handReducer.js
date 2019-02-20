@@ -7,9 +7,15 @@ export default function handReducer(state = initialState.hand, action) {
         case types.DRAW_CARD:
         console.log(state.hand)
         return[...state, Object.assign({}, action.card)];
-            // return Object.assign({},state,{
-            //     hand: [state.push(action.card)]
-            // })
+        case types.DISCARD_CARD: {
+            const newState = Object.assign([], state);
+            const indexOfCardToRemove = state.findIndex(card => {
+                return card.id === action.cardId
+            })
+            newState.splice(indexOfCardToRemove, 1);
+            return newState;
+        }
+        
         default:
             return state;
     }

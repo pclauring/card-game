@@ -12,6 +12,7 @@ class Game extends React.Component {
         this.state = {
         };
         this.drawCard = this.drawCard.bind(this);
+        this.discardCard = this.discardCard.bind(this);
     }
 
     drawCard(event) {
@@ -21,11 +22,15 @@ class Game extends React.Component {
         this.props.actions.drawCard(card);
     }
 
+    discardCard(cardId) {
+        this.props.actions.discardCard(cardId);
+    }
+
     render() {
         return (
             <div className="game-container">
                 <Deck deck={this.props.game.deck} drawCard={this.drawCard} />
-               {this.props.hand && <Hand hand={this.props.hand} />}
+               {this.props.hand && <Hand hand={this.props.hand} discardCard={this.discardCard} />}
             </div>
         )
     }
