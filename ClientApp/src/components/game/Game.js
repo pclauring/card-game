@@ -16,22 +16,15 @@ class Game extends React.Component {
 
     drawCard(event) {
         event.preventDefault();
+        if(this.props.game.deck.length === 0){ return;}
         var card = this.props.game.deck[0];
         this.props.actions.drawCard(card);
-
     }
 
     render() {
         return (
             <div className="game-container">
-            {/* <input 
-                type="submit"
-                value="Draw Hand"
-                className="btn btn-primary"
-                onClick={this.drawCard}
-                />  */}
-                
-                {this.props.game.deck.length > 0 && <Deck deck={this.props.game.deck} drawCard={this.drawCard} />}
+                <Deck deck={this.props.game.deck} drawCard={this.drawCard} />
                {this.props.hand && <Hand hand={this.props.hand} />}
             </div>
         )
