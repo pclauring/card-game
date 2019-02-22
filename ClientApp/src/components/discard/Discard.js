@@ -1,12 +1,12 @@
 import React from 'react';
 import './Discard.css';
 
-const Discard = ({ deck, drawCard }) => {
+const Discard = ({ deck }) => {
     return (
-        <div className="deck-container">
-            <div className="deck-body" onClick={drawCard}>{deck.length > 0 ? "Card Count: " + deck.length : "Deck Empty"}</div>
+        <div className="discard-container">
+            <div className="discard-body">{deck.length > 0 ? "Card Count: " + deck.length : "Discard Empty"}</div>
         </div>
-        );
+    );
 }
 
 export default Discard;
