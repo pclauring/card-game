@@ -14,6 +14,12 @@ export default function gameReducer(state = initialState.game, action) {
             newState.deck.splice(indexOfCardToRemove, 1);
             return newState;
         }
+        case types.DISCARD_CARD: {
+            const discardState = Object.assign([], state);
+            discardState.discard.push(action.card);
+            console.log(discardState.discard);
+            return discardState;
+        }
         default:
             return state;
     }

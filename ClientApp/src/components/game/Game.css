@@ -1,4 +1,8 @@
-.game-container{
+.hand-container{
+    height: 120px;
     display: flex;
+}
 
+.board-container{
+    display: flex;
 }
