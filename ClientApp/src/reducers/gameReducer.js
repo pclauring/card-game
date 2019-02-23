@@ -1,5 +1,6 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
+import {shuffle} from '../selectors/selectors';
 
 export default function gameReducer(state = initialState.game, action) {
     switch (action.type) {
@@ -19,6 +20,14 @@ export default function gameReducer(state = initialState.game, action) {
             discardState.discard.push(action.card);
             console.log(discardState.discard);
             return discardState;
+        }
+
+        case types.SHUFFLE_DISCARD_INTO_DECK: {
+            const shuffleState = Object.assign([], state);
+            shuffleState.deck = shuffleState.deck.concat(shuffleState.discard);
+            shuffleState.deck = shuffle(shuffleState.deck);
+            shuffleState.discard = [];
+            return shuffleState;
         }
         default:
             return state;

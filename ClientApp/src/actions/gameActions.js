@@ -18,3 +18,7 @@ export function loadGame(){
         }
     };  
 }
+
+export function shuffleDiscardIntoDeck(game){
+    return {type: types.SHUFFLE_DISCARD_INTO_DECK, game }
+}
