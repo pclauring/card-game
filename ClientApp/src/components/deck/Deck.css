@@ -1,6 +1,10 @@
 .deck-container{
-    width: 100px;
-    text-align: center;
+    width: 150px;
+    margin: 5px;
+}
+
+.deck-label {
+    margin-top: 15px;
 }
 
 .deck-body {
@@ -10,9 +14,7 @@
     height: 120px;
     width: 80px;
     cursor: pointer;
-    margin: 10px;
     padding: 5px;
-    margin-left: -20px;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
@@ -20,5 +22,9 @@
 .deck-body:hover {
     z-index: 100;
     /* top: -10px; */
+    box-shadow: 0 4px 8px 0 rgba(0,100, 200, 0.2), 0 6px 20px 0 rgba(0, 100, 200, 0.19);
+}
+
+.deck-body:hover .game-card {
     box-shadow: 0 4px 8px 0 rgba(0,100, 200, 0.2), 0 6px 20px 0 rgba(0, 100, 200, 0.19);
 }
