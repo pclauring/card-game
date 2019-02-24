@@ -3,5 +3,6 @@ export default {
         deck: [],
         discard: []
     },
-    hand: []
+    hand: [],
+    board: []
    };

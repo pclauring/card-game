@@ -7,3 +7,7 @@ export function drawCard(card){
 export function discardCard(card){
     return { type: types.DISCARD_CARD, card }
 }
+
+export function playCard(card){
+    return {type: types.PLAY_CARD, card }
+}

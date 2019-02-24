@@ -16,6 +16,14 @@ export default function handReducer(state = initialState.hand, action) {
             newState.splice(indexOfCardToRemove, 1);
             return newState;
         }
+        case types.PLAY_CARD: {
+            const playState = Object.assign([], state);
+            const indexOfCardToRemove = state.findIndex(card => {
+                return card.id === action.card.id
+            })
+            playState.splice(indexOfCardToRemove, 1);
+            return playState;
+        }
         
         default:
             return state;
