@@ -1,3 +1,16 @@
+TODO:
+Board - Component Styling
+HandActionMenu - Component Styling
+GameCounter - Component to display Cards have been played (Other game state)
+API - Game Class populated from JSON stored on Server (Game rules / Options)
+TURN/Phase System for card plays
+
+Ideas:
+Euchre
+Drag and Drop - Play or Discard
+History - game actions (Undo action)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
