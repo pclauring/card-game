@@ -8,3 +8,11 @@
 .board-container{
     display: flex;
 }
+
+html, body {
+    background: #eee;
+}
+
+* {
+    font-family: Roboto;
+}

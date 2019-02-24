@@ -1,4 +1,6 @@
 .hand-container {
     display: flex;
-    margin: 25px;
+    margin: 40px 0 70px;
+    position: relative;
+    transition: max-width 0.5s ease;
 }
