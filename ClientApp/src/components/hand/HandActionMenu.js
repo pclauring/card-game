@@ -4,21 +4,26 @@ import './HandActionMenu.css';
 const HandActionMenu = ({ selectedCard, playCard, discardCard }) => {
 
     return (
-        <div>
-            <h4>Card Actions</h4>
-            <h6>{selectedCard.id}</h6>
-            <input
-                type="submit"
-                value="Play"
-                className="btn btn-primary"
-                onClick={() => playCard ? playCard(selectedCard.id) : null }
-            />
-            <input
-                type="submit"
-                value="Discard"
-                className="btn btn-secondary"
-                onClick={() => discardCard ? discardCard(selectedCard.id) : null }
-            />
+        <div className="hand-menu-container">
+            <div className="hand-menu-body">
+            <label className="hand-menu-action-label">
+                {"Selected Card: " + selectedCard.id}
+                </label>
+                <div className="hand-menu-actions">
+                    <input
+                        type="submit"
+                        value="Play"
+                        className="btn btn-primary"
+                        onClick={() => playCard ? playCard(selectedCard.id) : null}
+                    />
+                    <input
+                        type="submit"
+                        value="Discard"
+                        className="btn btn-secondary"
+                        onClick={() => discardCard ? discardCard(selectedCard.id) : null}
+                    />
+                </div>
+            </div>
         </div>
     );
 }
