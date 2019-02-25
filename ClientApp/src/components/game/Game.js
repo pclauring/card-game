@@ -29,7 +29,7 @@ class Game extends React.Component {
             <div className="game-container">
                 {this.props.hand && <HandContainer />}
             </div>
-            <div className="board-container">
+            <div className="game-board-container">
             <Deck deck={this.props.game.deck} drawCard={this.drawCard} />
             {this.props.game.discard && <Discard deck={this.props.game.discard} />}
             {this.props.board && <Board board={this.props.board} />}

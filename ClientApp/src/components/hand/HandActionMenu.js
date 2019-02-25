@@ -1,10 +1,12 @@
 import React from 'react';
 import './HandActionMenu.css';
 
-const HandActionMenu = ({ selectedCard, playCard, discardCard }) => {
-
+const HandActionMenu = ({ selectedCard, playCard, discardCard, display }) => {
+    const classes = ['hand-menu-container'];
+    if(display) { classes.push('display') };
+    
     return (
-        <div className="hand-menu-container">
+        <div className={classes.join(' ')}>
             <div className="hand-menu-body">
             <label className="hand-menu-action-label">
                 {"Selected Card: " + selectedCard.id}

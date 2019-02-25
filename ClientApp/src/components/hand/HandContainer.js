@@ -43,8 +43,16 @@ class HandContainer extends React.Component {
     const {hand} = this.props;
         return (
             <div>
-                <Hand hand={hand} selectCard={this.selectCard} />
-               {this.state.displayMenu ? <HandActionMenu display={this.state.displayMenu} playCard={this.playCard} discardCard={this.discardCard} selectedCard={this.state.selectedCard}/> : null }
+                <Hand
+                    hand={hand}
+                    selectCard={this.selectCard}
+                    />
+               <HandActionMenu 
+                    display={this.state.displayMenu}
+                    playCard={this.playCard}
+                    discardCard={this.discardCard}
+                    selectedCard={this.state.selectedCard} 
+                    />
             </div>
         );
     }

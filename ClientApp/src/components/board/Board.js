@@ -4,7 +4,7 @@ import Card from '../card/Card';
 
 const Board = ({ board }) => {
     return (
-        <div className="hand-container">
+        <div className="board-container">
             {board.map(card => <Card key={card.id} {...card} />)}
         </div>);
 }

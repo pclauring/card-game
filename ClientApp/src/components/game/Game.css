@@ -5,8 +5,12 @@
     margin-right: auto;
 }
 
-.board-container{
+.game-board-container{
     display: flex;
+}
+
+.game-container{
+
 }
 
 html, body {
