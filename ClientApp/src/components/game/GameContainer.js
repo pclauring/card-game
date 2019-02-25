@@ -6,9 +6,10 @@ import HandContainer from '../hand/HandContainer';
 import Deck from '../deck/Deck';
 import Discard from '../discard/Discard';
 import Board from '../board/Board';
+import GameCounter from './GameCounter';
 import './Game.css';
 
-class Game extends React.Component {
+class GameContainer extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -34,6 +35,11 @@ class Game extends React.Component {
             {this.props.game.discard && <Discard deck={this.props.game.discard} />}
             {this.props.board && <Board board={this.props.board} />}
             </div>
+            <GameCounter
+                deck={this.props.game.deck}
+                discard={this.props.game.discard}
+                hand={this.props.hand}
+                board={this.props.board} />
         </div>
 
         )
@@ -54,4 +60,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Game);
+export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);

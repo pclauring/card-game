@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as gameActions from '../../actions/gameActions';
-import Game from './Game';
+import GameContainer from './GameContainer';
 
 class CardGamePage extends React.Component {
     constructor(props, context) {
@@ -22,13 +22,13 @@ class CardGamePage extends React.Component {
     render() {
         return (
             <div>
-                <Game game={this.props.game}/>
                 <input 
                 type="submit"
                 value="Shuffle Discard into Deck"
                 className="btn btn-primary"
                 onClick={this.shuffleDiscardIntoDeck}
                 /> 
+                <GameContainer game={this.props.game}/>
             </div>
         )
     }

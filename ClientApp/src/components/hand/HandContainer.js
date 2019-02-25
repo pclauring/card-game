@@ -20,14 +20,18 @@ class HandContainer extends React.Component {
     
     discardCard(cardId) {
         var discardCard = this.props.hand.find(card => card.id === cardId);
+        if(discardCard !== undefined) {
         this.props.actions.discardCard(discardCard);
         this.setState({ displayMenu: false});
+        }
     }
 
     playCard(cardId) {
         var playCard = this.props.hand.find(card => card.id === cardId);
-        this.props.actions.playCard(playCard);
-        this.setState({ displayMenu: false});
+        if(playCard !== undefined){
+            this.props.actions.playCard(playCard);
+            this.setState({ displayMenu: false});
+        } 
     }
 
     selectCard(cardId){
