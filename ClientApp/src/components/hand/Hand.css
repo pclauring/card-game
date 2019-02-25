@@ -12,7 +12,7 @@
     text-align: center;
     margin-bottom: 20px;
     opacity: 0;
-    
+    transition: 0.5s;
     visibility: hidden; 
 }
 
