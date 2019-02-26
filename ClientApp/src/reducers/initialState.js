@@ -1,7 +1,8 @@
 export default {
     game: {
         deck: [],
-        discard: []
+        discard: [],
+        turnPhases: []
     },
     hand: [],
     board: []

@@ -6,3 +6,10 @@ export function shuffle (array) {
     }
     return array;
 }
+
+export function sortByIndex(array){
+    //Sort by index prop of card expects an array of card objects
+           array.sort(function(a, b){
+                return a.index - b.index
+            });
+    }

@@ -4,7 +4,7 @@ import './Game.css';
 const GameCounter = ({ deck, hand, discard, board}) => {
     return (
         <div className="game-counter-container">
-            <table class="table">
+            <table className="table">
   <thead>
     <tr>
       <th scope="col">Deck</th>

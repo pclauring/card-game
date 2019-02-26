@@ -10,7 +10,6 @@ export function loadGame(){
             const response = await fetch(`api/Game/loadGame`);
             const game = await response.json();
             console.log(game);
-            game.discard = [];
             dispatch(loadGameSuccess(game));
         }
         catch (error) {
