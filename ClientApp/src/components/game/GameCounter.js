@@ -8,11 +8,16 @@ const countSuit = (array, suit) => {
   return suitCount;
 }
 
-const GameCounter = ({ deck, hand, discard, board }) => {
+const GameCounter = ({ deck, hand, discard, board, showPanel = false, clickAction }) => {
+  const panelClasses = ['game-counter-panel'];
+  if (showPanel) { panelClasses.push('show'); }
+  
 
   return (
     <div className="game-counter-container">
-      <table className="table">
+  <button className="game-counter-accordian" onClick={clickAction}>Game Dashboard</button>
+  <div className={panelClasses.join(' ')}>
+    <table >
         <thead>
           <tr>
             <th scope="col">Location</th>
@@ -57,8 +62,10 @@ const GameCounter = ({ deck, hand, discard, board }) => {
             <td>{countSuit(hand, "Spades")}</td>
           </tr>
         </tbody>
-      </table>
-    </div>
+  </table> 
+  </div>
+  <div>Test</div>
+    </div> 
   );
 }
 

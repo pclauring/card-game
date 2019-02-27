@@ -13,8 +13,10 @@ class GameContainer extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
+            showPanel: false
         };
         this.drawCard = this.drawCard.bind(this);
+        this.showPanel = this.showPanel.bind(this);
     }
 
     drawCard(event) {
@@ -24,6 +26,18 @@ class GameContainer extends React.Component {
         this.props.actions.drawCard(card);
     }
 
+    showPanel(event) {
+        event.preventDefault();
+        if (this.state.showPanel) {
+            this.setState({
+                showPanel: false
+            });
+        } else {
+            this.setState({
+                showPanel: true
+            });
+        }
+    }
 
     render() {
         return (<div>
@@ -31,15 +45,17 @@ class GameContainer extends React.Component {
                 {this.props.hand && <HandContainer />}
             </div>
             <div className="game-board-container">
-            <Deck deck={this.props.game.deck} drawCard={this.drawCard} />
-            {this.props.game.discard && <Discard deck={this.props.game.discard} />}
-            {this.props.board && <Board board={this.props.board} />}
+                <Deck deck={this.props.game.deck} drawCard={this.drawCard} />
+                {this.props.game.discard && <Discard deck={this.props.game.discard} />}
+                {this.props.board && <Board board={this.props.board} />}
             </div>
             <GameCounter
                 deck={this.props.game.deck}
                 discard={this.props.game.discard}
                 hand={this.props.hand}
-                board={this.props.board} />
+                board={this.props.board}
+                showPanel={this.state.showPanel}
+                clickAction={this.showPanel} />
         </div>
 
         )
