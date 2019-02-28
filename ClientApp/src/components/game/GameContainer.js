@@ -54,7 +54,8 @@ class GameContainer extends React.Component {
                 discard={this.props.game.discard}
                 hand={this.props.hand}
                 board={this.props.board}
-                turn={this.props.turn}
+                playerTurn={this.props.playerTurn}
+                turnCount={this.props.turnCount}
                 showPanel={this.state.showPanel}
                 clickAction={this.showPanel} />
         </div>
@@ -68,7 +69,8 @@ function mapStateToProps(state, ownProps) {
         game: state.game,
         hand: state.hand,
         board: state.board,
-        turn: state.turn
+        playerTurn: (state.turn % 2 === 0) ? "true" : "false",
+        turnCount: state.turn
     };
 }
 
