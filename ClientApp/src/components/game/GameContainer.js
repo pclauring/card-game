@@ -54,6 +54,7 @@ class GameContainer extends React.Component {
                 discard={this.props.game.discard}
                 hand={this.props.hand}
                 board={this.props.board}
+                turn={this.props.turn}
                 showPanel={this.state.showPanel}
                 clickAction={this.showPanel} />
         </div>
@@ -66,7 +67,8 @@ function mapStateToProps(state, ownProps) {
     return {
         game: state.game,
         hand: state.hand,
-        board: state.board
+        board: state.board,
+        turn: state.turn
     };
 }
 

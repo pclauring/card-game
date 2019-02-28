@@ -5,5 +5,6 @@ export default {
         turnPhases: []
     },
     hand: [],
-    board: []
+    board: [],
+    turn: 0
    };

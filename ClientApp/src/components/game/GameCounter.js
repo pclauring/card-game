@@ -8,7 +8,7 @@ const countSuit = (array, suit) => {
   return suitCount;
 }
 
-const GameCounter = ({ deck, hand, discard, board, showPanel = false, clickAction }) => {
+const GameCounter = ({ deck, hand, discard, board, showPanel = false, clickAction, turn }) => {
   const panelClasses = ['game-counter-panel'];
   if (showPanel) { panelClasses.push('show'); }
   
@@ -17,6 +17,7 @@ const GameCounter = ({ deck, hand, discard, board, showPanel = false, clickActio
     <div className="game-counter-container">
   <button className="game-counter-accordian" onClick={clickAction}>Game Dashboard</button>
   <div className={panelClasses.join(' ')}>
+  <h6>Turn Counter: {turn}</h6>
     <table >
         <thead>
           <tr>
