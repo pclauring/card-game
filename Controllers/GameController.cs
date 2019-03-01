@@ -50,14 +50,16 @@ namespace card_game.Controllers
 
 
             //Turn phases 
-            List<string> turnPhases = new List<string> { "Upkeep", "Draw", "Main", "End" };
+            List<string> turnPhases = new List<string> { "Draw", "Play" };
             //Empty discard
             List<Card> discard = new List<Card>();
             return new Game
             {
                 Deck = cards.OrderBy(card => card.Index).ToList(),
                 Discard = discard,
-                TurnPhases = turnPhases
+                TurnPhases = turnPhases,
+                PhaseNumber = 2,
+                PlayerNumber = 2
             };
         }
 
@@ -68,6 +70,10 @@ namespace card_game.Controllers
             public List<Card> Discard { get; set; }
 
             public List<string> TurnPhases { get; set; }
+
+            public int PhaseNumber { get; set; }
+
+            public int PlayerNumber { get; set; }
         }
 
         public class Card

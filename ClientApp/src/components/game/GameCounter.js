@@ -18,8 +18,8 @@ const GameCounter = ({ deck, hand, discard, board, showPanel = false, clickActio
   <button className="game-counter-accordian" onClick={clickAction}>Game Dashboard</button>
   <div className={panelClasses.join(' ')}>
   <h6>Turn Counter: {turnCount}</h6>
-  <h6>Player Turn: {playerTurn}</h6>
-    <table >
+  <h6>Player Turn: {playerTurn.toString()}</h6>
+    <table className="table table-sm">
         <thead>
           <tr>
             <th scope="col">Location</th>
@@ -66,7 +66,7 @@ const GameCounter = ({ deck, hand, discard, board, showPanel = false, clickActio
         </tbody>
   </table> 
   </div>
-  <div>Test</div>
+  <div className="game-counter-accordian"></div>
     </div> 
   );
 }

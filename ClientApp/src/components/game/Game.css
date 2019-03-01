@@ -25,16 +25,15 @@
 }
 
 .game-counter-panel{
-    box-sizing: border-box;
-    height: 120px;
-    opacity: 1.0;
-    transition: height 500ms 0ms, opacity 500ms 500ms;
+    height: 0px;
+    opacity: 0.0;
+    transition: height 500ms 500ms, opacity 500ms 0ms;
 }
 
 .game-counter-panel.show {
-    transition: height 500ms 500ms, opacity 500ms 0ms;
-    opacity: 0.0;
-    height: 0px;
+    transition: height 500ms 0ms, opacity 500ms 500ms;
+    opacity: 1.0;
+    height: 220px;
   }
 
 html, body {

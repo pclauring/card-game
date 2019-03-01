@@ -13,7 +13,8 @@ class GameContainer extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            showPanel: false
+            showPanel: false,
+            playerId: 0
         };
         this.drawCard = this.drawCard.bind(this);
         this.showPanel = this.showPanel.bind(this);
@@ -54,7 +55,7 @@ class GameContainer extends React.Component {
                 discard={this.props.game.discard}
                 hand={this.props.hand}
                 board={this.props.board}
-                playerTurn={this.props.playerTurn}
+                playerTurn={this.props.playerTurn === this.state.playerId ? true : false}
                 turnCount={this.props.turnCount}
                 showPanel={this.state.showPanel}
                 clickAction={this.showPanel} />
@@ -65,11 +66,13 @@ class GameContainer extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
+    const playerId = Math.trunc((state.turn / state.game.phaseNumber) % state.game.playerNumber);
+    console.log(playerId);
     return {
         game: state.game,
         hand: state.hand,
         board: state.board,
-        playerTurn: (state.turn % 2 === 0) ? "true" : "false",
+        playerTurn: playerId,
         turnCount: state.turn
     };
 }
