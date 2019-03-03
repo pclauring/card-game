@@ -19,15 +19,8 @@ class GameContainer extends React.Component {
         };
         this.drawCard = this.drawCard.bind(this);
         this.showPanel = this.showPanel.bind(this);
-        this.shuffleDiscardIntoDeck = this.shuffleDiscardIntoDeck.bind(this);
     }
-    
-    shuffleDiscardIntoDeck(event) {
-        event.preventDefault();
-        if (this.props.game.discard.length === 0) { return; }
-        this.props.actions.shuffleDiscardIntoDeck(this.props.game);
-    }
-
+   
 
     drawCard(event) {
         event.preventDefault();
@@ -64,7 +57,7 @@ class GameContainer extends React.Component {
                 type="submit"
                 value="Shuffle Discard into Deck"
                 className="btn btn-primary shuffle-discard-btn"
-                onClick={this.shuffleDiscardIntoDeck}
+                onClick={this.props.discardReset}
                 /> 
             <div className="game-container">
             <div className="opponent-container">
