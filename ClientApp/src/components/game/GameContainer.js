@@ -18,7 +18,15 @@ class GameContainer extends React.Component {
         };
         this.drawCard = this.drawCard.bind(this);
         this.showPanel = this.showPanel.bind(this);
+        this.shuffleDiscardIntoDeck = this.shuffleDiscardIntoDeck.bind(this);
     }
+    
+    shuffleDiscardIntoDeck(event) {
+        event.preventDefault();
+        if (this.props.game.discard.length === 0) { return; }
+        this.props.actions.shuffleDiscardIntoDeck(this.props.game);
+    }
+
 
     drawCard(event) {
         event.preventDefault();
@@ -42,7 +50,23 @@ class GameContainer extends React.Component {
 
     render() {
         return (<div>
+            <GameCounter
+            deck={this.props.game.deck}
+            discard={this.props.game.discard}
+            hand={this.props.hand}
+            board={this.props.board}
+            playerTurn={this.props.playerTurn === this.state.playerId ? true : false}
+            turnCount={this.props.turnCount}
+            showPanel={this.state.showPanel}
+            clickAction={this.showPanel} />
+            <input 
+                type="submit"
+                value="Shuffle Discard into Deck"
+                className="btn btn-primary shuffle-discard-btn"
+                onClick={this.shuffleDiscardIntoDeck}
+                /> 
             <div className="game-container">
+
                 {this.props.hand && <HandContainer />}
             </div>
             <div className="game-board-container">
@@ -50,15 +74,6 @@ class GameContainer extends React.Component {
                 {this.props.game.discard && <Discard deck={this.props.game.discard} />}
                 {this.props.board && <Board board={this.props.board} />}
             </div>
-            <GameCounter
-                deck={this.props.game.deck}
-                discard={this.props.game.discard}
-                hand={this.props.hand}
-                board={this.props.board}
-                playerTurn={this.props.playerTurn === this.state.playerId ? true : false}
-                turnCount={this.props.turnCount}
-                showPanel={this.state.showPanel}
-                clickAction={this.showPanel} />
         </div>
 
         )

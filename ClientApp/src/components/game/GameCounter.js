@@ -1,6 +1,10 @@
 import React from 'react';
 import './Game.css';
 
+const turnInfoStyle = {
+  textAlign: 'center'
+}
+
 const countSuit = (array, suit) => {
   var suitCount = array.reduce(function (suitTotal, currentCard) {
     return suitTotal + (currentCard.suit === suit ? 1 : 0);
@@ -17,12 +21,14 @@ const GameCounter = ({ deck, hand, discard, board, showPanel = false, clickActio
     <div className="game-counter-container">
   <button className="game-counter-accordian" onClick={clickAction}>Game Dashboard</button>
   <div className={panelClasses.join(' ')}>
-  <h6>Turn Counter: {turnCount}</h6>
-  <h6>Player Turn: {playerTurn.toString()}</h6>
+  <div style={turnInfoStyle}>
+  <p>Turn Counter: {turnCount} <br/>
+  Player Turn: {playerTurn.toString()}</p>
+  </div>
     <table className="table table-sm">
         <thead>
           <tr>
-            <th scope="col">Location</th>
+            <th scope="col"></th>
             <th>Count</th>
             <th scope="col"><span className="game-counter-icon">♥</span></th>
             <th scope="col"><span className="game-counter-icon">♦</span></th>
