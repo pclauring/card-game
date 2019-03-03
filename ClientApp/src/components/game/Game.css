@@ -13,6 +13,7 @@
 }
 
 .game-counter-container{
+    left: 5px;
     width: 220px;
     position: absolute;
 }

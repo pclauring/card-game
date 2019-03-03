@@ -6,10 +6,12 @@ import game from '../reducers/gameReducer';
 import hand from '../reducers/handReducer';
 import board from '../reducers/boardReducer';
 import turn from '../reducers/turnReducer';
+import opponentHand from '../reducers/opponentHandReducer';
 
 export default function configureStore (history, initialState) {
   const reducers = {
     hand: hand,
+    opponentHand: opponentHand,
     game: game,
     board: board,
     turn: turn,

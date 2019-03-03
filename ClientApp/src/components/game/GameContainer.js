@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as handActions from '../../actions/handActions';
 import HandContainer from '../hand/HandContainer';
+import OpponentHand from '../opponent/OpponentHand';
 import Deck from '../deck/Deck';
 import Discard from '../discard/Discard';
 import Board from '../board/Board';
@@ -66,7 +67,9 @@ class GameContainer extends React.Component {
                 onClick={this.shuffleDiscardIntoDeck}
                 /> 
             <div className="game-container">
-
+            <div className="opponent-container">
+                {this.props.opponentHand && <OpponentHand hand={this.props.opponentHand} />}
+                </div>
                 {this.props.hand && <HandContainer />}
             </div>
             <div className="game-board-container">
@@ -86,6 +89,7 @@ function mapStateToProps(state, ownProps) {
     return {
         game: state.game,
         hand: state.hand,
+        opponentHand: state.opponentHand,
         board: state.board,
         playerTurn: playerId,
         turnCount: state.turn
