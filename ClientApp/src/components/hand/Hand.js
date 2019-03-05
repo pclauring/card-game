@@ -2,10 +2,10 @@ import React from 'react';
 import './Hand.css';
 import Card from '../card/Card';
 
-const Hand = ({ hand, selectCard }) => {
+const Hand = ({ hand, selectCard, front = true }) => {
     return (
         <div className={"hand-container"} style={handStyle(hand.length)}>
-            {hand.map((card, index) => <Card key={card.id} {...card} clickAction={selectCard} style={cardStyle(index, hand.length)} />)}
+            {hand.map((card, index) => <Card key={card.id} {...card} clickAction={selectCard} style={cardStyle(index, hand.length)} front={front}/>)}
         </div>);
 }
 

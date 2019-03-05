@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as handActions from '../../actions/handActions';
 import HandContainer from '../hand/HandContainer';
-import OpponentHand from '../opponent/OpponentHand';
+import Opponent from '../opponent/Opponent';
 import Deck from '../deck/Deck';
 import Discard from '../discard/Discard';
 import Board from '../board/Board';
@@ -61,7 +61,7 @@ class GameContainer extends React.Component {
                 /> 
             <div className="game-container">
             <div className="opponent-container">
-                {this.props.opponentHand && <OpponentHand hand={this.props.opponentHand} />}
+                {this.props.opponentHand && <Opponent hand={this.props.opponentHand} front={false}/>}
                 </div>
                 {this.props.hand && <HandContainer />}
             </div>
@@ -78,8 +78,6 @@ class GameContainer extends React.Component {
 
 function mapStateToProps(state, ownProps) {
     const playerId = Math.trunc((state.turn / state.game.phaseNumber) % state.game.playerNumber);
-    console.log(playerId);
-    console.log(state.game.player1);
     return {
         game: state.game,
         hand: state.hand,

@@ -5,7 +5,6 @@ import {shuffle} from '../selectors/selectors';
 export default function gameReducer(state = initialState.game, action) {
     switch (action.type) {
         case types.LOAD_GAME_SUCCESS:
-            console.log(action.game);
             return action.game
             //delete with immutable state
         case types.DRAW_CARD: {
@@ -19,7 +18,6 @@ export default function gameReducer(state = initialState.game, action) {
         case types.DISCARD_CARD: {
             const discardState = Object.assign([], state);
             discardState.discard.push(action.card);
-            console.log(discardState.discard);
             return discardState;
         }
 

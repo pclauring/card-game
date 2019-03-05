@@ -9,7 +9,6 @@ export function loadGame(){
         try {
             const response = await fetch(`api/Game/loadGame`);
             const game = await response.json();
-            console.log(game);
             dispatch(loadGameSuccess(game));
         }
         catch (error) {
