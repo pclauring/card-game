@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -62,13 +63,34 @@ namespace card_game.Controllers
             List<string> turnPhases = new List<string> { "Draw", "Play" };
             //Empty discard
             List<Card> discard = new List<Card>();
+            //Player setup
+            Player player1 = new Player();
+            player1.Id = 1;
+            player1.Discard = new List<Card>();
+            player1.Board = new List<Card>();
+            player1.Deck = new List<Card>();
+            player1.Hand = new List<Card>();
+
+            Player player2 = new Player();
+            player2.Id = 2;
+            player2.Discard = new List<Card>();
+            player2.Board = new List<Card>();
+            player2.Deck = new List<Card>();
+            player2.Hand = new List<Card>();
+
+            //Splitting the shuffled deck between two players
+            player1.Deck = cards.GetRange(0, 26);
+            player2.Deck = cards.GetRange(25, 26);
+
             return new Game
             {
                 Deck = cards.OrderBy(card => card.Index).ToList(),
                 Discard = discard,
                 TurnPhases = turnPhases,
                 PhaseNumber = 2,
-                PlayerNumber = 2
+                PlayerNumber = 2,
+                Player1 = player1,
+                Player2 = player2
             };
         }
     }

@@ -1,15 +1,3 @@
-TODO:
-Board - Component Styling
-HandActionMenu - Component Styling (Fade-in/Fade-out)
-GameCounter - Component to display Cards have been played (Other game state)
-API - Game Class populated from JSON stored on Server (Game rules / Options)
-TURN/Phase System for card plays in redux state
-
-Ideas:
-War or Euchre
-Drag and Drop - Play or Discard
-History - game actions (Undo action)
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

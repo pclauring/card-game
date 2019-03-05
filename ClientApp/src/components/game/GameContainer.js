@@ -79,6 +79,7 @@ class GameContainer extends React.Component {
 function mapStateToProps(state, ownProps) {
     const playerId = Math.trunc((state.turn / state.game.phaseNumber) % state.game.playerNumber);
     console.log(playerId);
+    console.log(state.game.player1);
     return {
         game: state.game,
         hand: state.hand,
