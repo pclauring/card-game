@@ -1,10 +1,10 @@
 import React from 'react';
-import './Board.css';
+import styles from './Board.module.css';
 import Card from '../card/Card';
 
 const Board = ({ board }) => {
     return (
-        <div className="board-container">
+        <div className={styles.board_container}>
             {board.map(card => <Card key={card.id} {...card} />)}
         </div>);
 }

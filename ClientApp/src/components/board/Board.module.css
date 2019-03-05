@@ -1,0 +1,8 @@
+.board_container {
+    display: flex;
+    position: relative;
+}
+
+.board_container > * {
+    margin: 5px;
+}
