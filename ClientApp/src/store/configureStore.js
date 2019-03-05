@@ -1,7 +1,6 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
-import * as WeatherForecasts from './WeatherForecasts';
 import game from '../reducers/gameReducer';
 import hand from '../reducers/handReducer';
 import board from '../reducers/boardReducer';
@@ -14,8 +13,7 @@ export default function configureStore (history, initialState) {
     opponentHand: opponentHand,
     game: game,
     board: board,
-    turn: turn,
-    weatherForecasts: WeatherForecasts.reducer
+    turn: turn
   };
 
   const middleware = [
