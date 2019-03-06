@@ -15,7 +15,8 @@ class GameContainer extends React.Component {
         super(props, context);
         this.state = {
             showPanel: false,
-            playerId: 0
+            //set default human player to Id of 1 
+            playerId: 1
         };
         this.drawCard = this.drawCard.bind(this);
         this.showPanel = this.showPanel.bind(this);
@@ -63,7 +64,7 @@ class GameContainer extends React.Component {
             <div className="opponent-container">
                 {this.props.opponentHand && <Opponent hand={this.props.opponentHand} front={false}/>}
                 </div>
-                {this.props.hand && <HandContainer />}
+                {this.props.hand && <HandContainer currentTurn={this.props.currentTurn} />}
             </div>
             <div className="game-board-container">
                 <Deck deck={this.props.game.deck} drawCard={this.drawCard} />
@@ -77,13 +78,21 @@ class GameContainer extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    const playerId = Math.trunc((state.turn / state.game.phaseNumber) % state.game.playerNumber);
+
+    //determine if the current players turn is the active user or opponent
+    const humanPlayerId = state.game.player1.id;
+    const activePlayerId = Math.trunc((state.turn / state.game.phaseNumber) % state.game.playerNumber) + 1;
+    const playerTurn = humanPlayerId === activePlayerId;
+
+    console.log(activePlayerId);
     return {
         game: state.game,
         hand: state.hand,
         opponentHand: state.opponentHand,
         board: state.board,
-        playerTurn: playerId,
+        humanPlayerId: state.game.player1.id,
+        currentTurn: playerTurn,
+        activePlayerId: activePlayerId,
         turnCount: state.turn
     };
 }

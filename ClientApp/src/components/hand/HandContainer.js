@@ -52,6 +52,7 @@ class HandContainer extends React.Component {
                     selectCard={this.selectCard}
                     />
                <HandActionMenu 
+                    currentTurn={this.props.currentTurn}
                     display={this.state.displayMenu}
                     playCard={this.playCard}
                     discardCard={this.discardCard}

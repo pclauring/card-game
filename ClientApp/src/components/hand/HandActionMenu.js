@@ -1,7 +1,7 @@
 import React from 'react';
 import './HandActionMenu.css';
 
-const HandActionMenu = ({ selectedCard, playCard, discardCard, display }) => {
+const HandActionMenu = ({ selectedCard, playCard, discardCard, display, currentTurn }) => {
     const classes = ['hand-menu-container'];
     if(display) { classes.push('display') };
     
@@ -13,12 +13,14 @@ const HandActionMenu = ({ selectedCard, playCard, discardCard, display }) => {
                 </label>
                 <div className="hand-menu-actions">
                     <input
+                        disabled={!currentTurn}
                         type="submit"
                         value="Play"
                         className="btn btn-primary"
                         onClick={() => playCard ? playCard(selectedCard.id) : null}
                     />
                     <input
+                        disabled={!currentTurn}
                         type="submit"
                         value="Discard"
                         className="btn btn-secondary"
