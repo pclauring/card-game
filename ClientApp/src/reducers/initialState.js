@@ -1,3 +1,9 @@
+const turnPhase = {
+    MAIN: 1,
+    CLEANUP: 2,
+    DRAW: 3,
+};
+
 export default {
     game: {
         deck: [],
@@ -33,5 +39,93 @@ export default {
     ],
     hand: [],
     board: [],
-    turn: 0
+    turn: 0,
+
+    players: [
+        {
+            id: 1,
+            health: 20,
+            attack: 0,
+            buy: 0,
+            cardAreas: [
+                {
+                    id: 'DRAW',
+                    cards: []
+                },
+                {
+                    id: 'DISCARD',
+                    cards: []
+                },
+                {
+                    id: 'BOARD',
+                    cards: []
+                },
+                {
+                    id: 'HAND',
+                    cards: []
+                },
+                {
+                    id: 'SPELL_AREA',
+                    cards: []
+                },
+            ]
+        },
+        {
+            id: 2,
+            health: 20,
+            attack: 0,
+            buy: 0,
+            cardAreas: [
+                {
+                    id: 'DRAW',
+                    cards: []
+                },
+                {
+                    id: 'DISCARD',
+                    cards: []
+                },
+                {
+                    id: 'BOARD',
+                    cards: []
+                },
+                {
+                    id: 'HAND',
+                    cards: []
+                },
+                {
+                    id: 'SPELL_AREA',
+                    cards: []
+                },
+            ]
+        }
+    ],
+
+    Turns: {
+        count: 0,
+        currentPlayerId: 1,
+        currentTurnPhase: turnPhase.MAIN,
+    },
+
+    playArea: [
+        {
+            id: 'SPECIAL_ATTACK_STORE',
+            cards: []
+        },
+        {
+            id: 'SPECIAL_BUY_STORE',
+            cards: []
+        },
+        {
+            id: 'STORE_DECK',
+            cards: []
+        },
+        {
+            id: 'STORE_BOARD',
+            cards: []
+        },
+        {
+            id: 'STORE_EXILE',
+            cards: []
+        },
+    ]
 };
