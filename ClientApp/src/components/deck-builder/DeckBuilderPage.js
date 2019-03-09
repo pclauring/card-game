@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as playerActions from '../../actions/playerActions';
+import Hand from '../hand/Hand';
 
 class DeckBuilderPage extends React.Component {
     constructor(props, context) {
@@ -14,6 +15,7 @@ class DeckBuilderPage extends React.Component {
         return (
             <div>
                 {this.props.player.id}
+                <Hand hand={this.props.player.cardAreas["hand"]} />
             </div>
         )
     }
