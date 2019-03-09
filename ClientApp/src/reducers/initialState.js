@@ -40,63 +40,35 @@ export default {
     hand: [],
     board: [],
     turn: 0,
-
+    //Test Initial State Start
     players: [
         {
             id: 1,
             health: 20,
             attack: 0,
             buy: 0,
-            cardAreas: [
-                {
-                    id: 'DRAW',
-                    cards: []
-                },
-                {
-                    id: 'DISCARD',
-                    cards: []
-                },
-                {
-                    id: 'BOARD',
-                    cards: []
-                },
-                {
-                    id: 'HAND',
-                    cards: []
-                },
-                {
-                    id: 'SPELL_AREA',
-                    cards: []
-                },
-            ]
+            handSize: 5,
+            cardAreas: {
+                draw: [],
+                discard: [],
+                board: [],
+                hand: [],
+                spellArea: [],
+            },
         },
         {
             id: 2,
             health: 20,
             attack: 0,
             buy: 0,
-            cardAreas: [
-                {
-                    id: 'DRAW',
-                    cards: []
-                },
-                {
-                    id: 'DISCARD',
-                    cards: []
-                },
-                {
-                    id: 'BOARD',
-                    cards: []
-                },
-                {
-                    id: 'HAND',
-                    cards: []
-                },
-                {
-                    id: 'SPELL_AREA',
-                    cards: []
-                },
-            ]
+            handSize: 5,
+            cardAreas: {
+                draw: [],
+                discard: [],
+                board: [],
+                hand: [],
+                spellArea: [],
+            },
         }
     ],
 
@@ -106,26 +78,11 @@ export default {
         currentTurnPhase: turnPhase.MAIN,
     },
 
-    playArea: [
-        {
-            id: 'SPECIAL_ATTACK_STORE',
-            cards: []
-        },
-        {
-            id: 'SPECIAL_BUY_STORE',
-            cards: []
-        },
-        {
-            id: 'STORE_DECK',
-            cards: []
-        },
-        {
-            id: 'STORE_BOARD',
-            cards: []
-        },
-        {
-            id: 'STORE_EXILE',
-            cards: []
-        },
-    ]
+    playArea: {
+            specialAttackStore: [],
+            specialBuyStore: [],
+            storeDeck: [],
+            storeBoard: [],
+            storeExile: []
+        }
 };
