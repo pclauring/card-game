@@ -40,7 +40,8 @@ export default {
     hand: [],
     board: [],
     turn: 0,
-    //Test Initial State Start
+    //deckbuilder game initial state
+    deckbuilder: {
     players: [
         {
             id: 1,
@@ -111,4 +112,5 @@ export default {
             storeBoard: [],
             storeExile: []
         }
+    }
 };
