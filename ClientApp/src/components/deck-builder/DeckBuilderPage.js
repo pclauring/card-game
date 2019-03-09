@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as playerActions from '../../actions/playerActions';
 import Hand from '../hand/Hand';
+import Board from '../board/Board';
 
 class DeckBuilderPage extends React.Component {
     constructor(props, context) {
@@ -16,6 +17,7 @@ class DeckBuilderPage extends React.Component {
             <div>
                 {this.props.player.id}
                 <Hand hand={this.props.player.cardAreas["hand"]} />
+                <Board board={this.props.player.cardAreas["board"]}/>
             </div>
         )
     }

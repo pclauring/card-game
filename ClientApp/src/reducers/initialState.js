@@ -51,7 +51,13 @@ export default {
             cardAreas: {
                 draw: [],
                 discard: [],
-                board: [],
+                board: [{
+                    id: "Hearts-4",
+                    index: 17,
+                    location: "DECK",
+                    suit: "Hearts",
+                    value: 4,
+                }],
                 hand: [{
                     id: "Hearts-4",
                     index: 17,
