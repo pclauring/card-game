@@ -5,6 +5,7 @@ import game from '../reducers/gameReducer';
 import hand from '../reducers/handReducer';
 import board from '../reducers/boardReducer';
 import turn from '../reducers/turnReducer';
+import turnInfo from '../reducers/turnInfoReducer';
 import opponentHand from '../reducers/opponentHandReducer';
 import players from '../reducers/playerReducer';
 
@@ -15,7 +16,9 @@ export default function configureStore (history, initialState) {
     opponentHand: opponentHand,
     game: game,
     board: board,
-    turn: turn
+    turn: turn,
+    turnInfo: turnInfo
+
   };
 
   const middleware = [
