@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as handActions from '../../actions/handActions';
 import HandContainer from '../hand/HandContainer';
-import Opponent from '../opponent/Opponent';
+import Hand from '../hand/Hand';
 import Deck from '../deck/Deck';
 import Discard from '../discard/Discard';
 import Board from '../board/Board';
@@ -62,7 +62,7 @@ class GameContainer extends React.Component {
                 /> 
             <div className="game-container">
             <div className="opponent-container">
-                {this.props.opponentHand && <Opponent hand={this.props.opponentHand} front={false}/>}
+                {this.props.opponentHand && <Hand hand={this.props.opponentHand} front={false}/>}
                 </div>
                 {this.props.hand && <HandContainer currentTurn={this.props.currentTurn} />}
             </div>

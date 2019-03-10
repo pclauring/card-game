@@ -16,8 +16,7 @@ class CurrentPlayerArea extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.props.player.id}
+            <div style={{display: 'flex'}}>
                 <Hand hand={this.props.player.cardAreas["hand"]} />
                 <Board board={this.props.player.cardAreas["board"]}/>
                 <Deck deck={this.props.player.cardAreas["draw"]}/>

@@ -1,4 +1,4 @@
-import * as types from '../actions/actionTypes';
+import * as types from '../actions/deckBuilderActionTypes';
 import initialState from './deckBuilderInitialState';
 
 export default function playersReducer(state = initialState.deckbuilder.players, action) {
