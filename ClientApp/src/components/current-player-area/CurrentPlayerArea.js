@@ -28,7 +28,7 @@ class CurrentPlayerArea extends React.Component {
                         <Deck deck={this.props.player.cardAreas["draw"]} />
                         <Discard discard={this.props.player.cardAreas["discard"]} />
                     </div>
-                    <div className="resource-section">{this.props.player.health}</div>
+                    <div className="resource-section">{this.props.player.attack}</div>
                 </div>
             </div>
         )
@@ -40,7 +40,7 @@ function mapStateToProps(state, ownProps) {
     const player = state.players.find(player => player.id === currentPlayerId);
     return {
         player: player
-    };
+        };
 }
 
 function mapDispatchToProps(dispatch) {

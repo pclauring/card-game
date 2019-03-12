@@ -42,6 +42,13 @@ export default {
                     location: "DECK",
                     suit: "Diamonds",
                     value: 3,
+                },
+                {
+                    id: "Diamonds-3",
+                    index: 3,
+                    location: "DECK",
+                    suit: "Diamonds",
+                    value: 3,
                 }],
                 spellArea: [{
                     id: "Hearts-4",
