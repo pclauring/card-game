@@ -6,6 +6,7 @@ import Hand from '../hand/Hand';
 import Board from '../board/Board';
 import Deck from '../deck/Deck';
 import Discard from '../discard/Discard';
+import './CurrentPlayerArea.css';
 
 class CurrentPlayerArea extends React.Component {
     constructor(props, context) {
@@ -16,11 +17,19 @@ class CurrentPlayerArea extends React.Component {
 
     render() {
         return (
-            <div style={{display: 'flex'}}>
-                <Hand hand={this.props.player.cardAreas["hand"]} />
-                <Board board={this.props.player.cardAreas["board"]}/>
-                <Deck deck={this.props.player.cardAreas["draw"]}/>
-                <Discard discard={this.props.player.cardAreas["discard"]}/>
+            <div className="current-player-container">
+                <div className="play-area-container">
+                    <Board board={this.props.player.cardAreas["board"]} />
+                    <Hand hand={this.props.player.cardAreas["hand"]} />
+                </div>
+                <div className="card-area-container">
+                    <div className="health-section">{this.props.player.health}</div>
+                    <div className="deck-pile-section">
+                        <Deck deck={this.props.player.cardAreas["draw"]} />
+                        <Discard discard={this.props.player.cardAreas["discard"]} />
+                    </div>
+                    <div className="resource-section">{this.props.player.health}</div>
+                </div>
             </div>
         )
     }
@@ -28,7 +37,7 @@ class CurrentPlayerArea extends React.Component {
 
 function mapStateToProps(state, ownProps) {
     const currentPlayerId = state.turnInfo.currentPlayerId;
-    const player = state.players.find( player => player.id === currentPlayerId);
+    const player = state.players.find(player => player.id === currentPlayerId);
     return {
         player: player
     };

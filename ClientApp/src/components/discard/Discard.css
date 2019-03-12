@@ -1,4 +1,6 @@
 .discard-container{
+    display: grid;
+    justify-items: center;
     width: 150px;
     margin: 5px;
 }
