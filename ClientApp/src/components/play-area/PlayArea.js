@@ -19,17 +19,28 @@ class PlayArea extends React.Component {
         return (
             <div className="play-area-container">
                 <div className="opposing-player-container">
-                    Opponent
+                    <div>
+                        <Hand hand={this.props.opposingPlayer.cardAreas["hand"]} front={false}/>
+                        <Board board={this.props.opposingPlayer.cardAreas["board"]} />
+                    </div>
+                    <div className="player-resource-area">
+                        <div className="health-section">{this.props.opposingPlayer.health}</div>
+                        <div className="deck-pile-section">
+                            <Deck deck={this.props.opposingPlayer.cardAreas["draw"]} />
+                            <Discard discard={this.props.opposingPlayer.cardAreas["discard"]} />
+                        </div>
+                        <div className="resource-section">{this.props.opposingPlayer.attack}</div>
+                    </div>
                 </div>
                 <div className="shared-area-container">
                     Shared Board
                 </div>
                 <div className="current-player-container">
-                    <div className="current-player-active-area">
+                    <div>
                         <Board board={this.props.player.cardAreas["board"]} />
                         <Hand hand={this.props.player.cardAreas["hand"]} />
                     </div>
-                    <div className="current-player-resource-area">
+                    <div className="player-resource-area">
                         <div className="health-section">{this.props.player.health}</div>
                         <div className="deck-pile-section">
                             <Deck deck={this.props.player.cardAreas["draw"]} />
@@ -45,9 +56,12 @@ class PlayArea extends React.Component {
 
 function mapStateToProps(state, ownProps) {
     const currentPlayerId = state.turnInfo.currentPlayerId;
+    const opposingPlayerId = state.turnInfo.opposingPlayerId;
     const player = state.players.find(player => player.id === currentPlayerId);
+    const opposingPlayer = state.players.find(player => player.id === opposingPlayerId);
     return {
-        player: player
+        player: player,
+        opposingPlayer: opposingPlayer
     };
 }
 

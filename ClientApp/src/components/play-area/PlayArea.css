@@ -10,10 +10,13 @@
     
 }
 
-.current-player-active-area {
-
+.opposing-player-container {
+    display: grid;
+    grid-template-columns: 65% auto;
+    
 }
-.current-player-resource-area {
+
+.player-resource-area {
     display: grid;
     grid-template-rows: 20% 60% 20%;
     justify-items: center;

@@ -66,11 +66,41 @@ export default {
             buy: 0,
             handSize: 5,
             cardAreas: {
-                draw: [],
-                discard: [],
-                board: [],
-                hand: [],
-                spellArea: [],
+                draw: [{
+                    id: "Hearts-4",
+                    index: 17,
+                    location: "DECK",
+                    suit: "Hearts",
+                    value: 4,
+                }],
+                discard: [{
+                    id: "Hearts-4",
+                    index: 17,
+                    location: "DECK",
+                    suit: "Hearts",
+                    value: 4,
+                }],
+                board: [{
+                    id: "Hearts-4",
+                    index: 17,
+                    location: "DECK",
+                    suit: "Hearts",
+                    value: 4,
+                }],
+                hand: [{
+                    id: "Hearts-4",
+                    index: 17,
+                    location: "DECK",
+                    suit: "Hearts",
+                    value: 4,
+                }],
+                spellArea: [{
+                    id: "Hearts-4",
+                    index: 17,
+                    location: "DECK",
+                    suit: "Hearts",
+                    value: 4,
+                }],
             },
         }
     ],
@@ -78,6 +108,7 @@ export default {
     turns: {
         count: 0,
         currentPlayerId: 1,
+        opposingPlayerId: 2,
         currentTurnPhase: turnPhase.MAIN,
     },
 
