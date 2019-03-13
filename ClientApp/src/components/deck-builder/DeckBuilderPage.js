@@ -1,9 +1,9 @@
 import React from 'react';
-import CurrentPlayerArea from '../current-player-area/CurrentPlayerArea';
+import PlayArea from '../play-area/PlayArea';
 
 const DeckBuilderPage = () => {
     return (
-           <CurrentPlayerArea />
+           <PlayArea />
     );
 }
 
