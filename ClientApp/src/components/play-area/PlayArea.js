@@ -6,6 +6,7 @@ import Hand from '../hand/Hand';
 import Board from '../board/Board';
 import Deck from '../deck/Deck';
 import Discard from '../discard/Discard';
+import CardPile from '../card-pile/CardPile';
 import './PlayArea.css';
 
 class PlayArea extends React.Component {
@@ -36,9 +37,12 @@ class PlayArea extends React.Component {
                     Shared Board
                 </div>
                 <div className="current-player-container">
-                    <div>
+                    <div className="active-card-area">
+                        <div className="played-card-area">
                         <Board board={this.props.player.cardAreas["board"]} />
+                        <CardPile title="Spell Area" cards={this.props.player.cardAreas["spellArea"]}/>
                         <Hand hand={this.props.player.cardAreas["hand"]} />
+                        </div>
                     </div>
                     <div className="player-resource-area">
                         <div className="health-section">{this.props.player.health}</div>

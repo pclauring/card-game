@@ -27,3 +27,13 @@
     grid-template-columns: 50% 50%;
     justify-items: end;
 }
+
+.active-card-area {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+}
+
+.played-card-area {
+    display: grid;
+    grid-auto-columns: repeat(2, auto);
+}
