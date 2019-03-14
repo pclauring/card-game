@@ -35,5 +35,5 @@
 
 .played-card-area {
     display: grid;
-    grid-auto-columns: repeat(2, auto);
+    grid-template-columns: 70% auto;
 }

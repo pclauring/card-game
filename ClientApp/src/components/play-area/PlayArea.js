@@ -41,8 +41,8 @@ class PlayArea extends React.Component {
                         <div className="played-card-area">
                         <Board board={this.props.player.cardAreas["board"]} />
                         <CardPile title="Spell Area" cards={this.props.player.cardAreas["spellArea"]}/>
-                        <Hand hand={this.props.player.cardAreas["hand"]} />
                         </div>
+                        <Hand hand={this.props.player.cardAreas["hand"]} />
                     </div>
                     <div className="player-resource-area">
                         <div className="health-section">{this.props.player.health}</div>
