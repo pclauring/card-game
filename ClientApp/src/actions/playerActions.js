@@ -1,7 +1,11 @@
-import * as types from  './actionTypes';
+import * as types from  './deckBuilderActionTypes';
 
-export function moveCard(card){
-    return { type: types.MOVE_CARD, card }
+export function moveCard(cardMoveInfo){
+    return { type: types.MOVE_CARD, cardMoveInfo }
+}
+
+export function drawCard(cardDrawInfo){
+    return { type: types.DRAW, cardDrawInfo }
 }
 
 //takes in a player Id and should take player hand size for that player

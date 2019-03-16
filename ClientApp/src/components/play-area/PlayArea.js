@@ -14,6 +14,17 @@ class PlayArea extends React.Component {
         super(props, context);
         this.state = {
         };
+        this.drawCard = this.drawCard.bind(this);
+    }
+
+    drawCard(event) {
+        event.preventDefault();
+        if (this.props.currentPlayerDeck.length === 0) { return; }
+        let cardDrawInfo = {
+            drawNum: 1,
+            playerId: this.props.currentPlayer.id
+        };
+        this.props.actions.drawCard(cardDrawInfo);
     }
 
     render() {
@@ -21,14 +32,14 @@ class PlayArea extends React.Component {
             <div className="play-area-container">
                 <div className="opposing-player-container">
                     <div>
-                        <Hand hand={this.props.opposingPlayer.cardAreas["hand"]} front={false}/>
-                        <Board board={this.props.opposingPlayer.cardAreas["board"]} />
+                        <Hand hand={this.props.opposingPlayer["hand"]} front={false}/>
+                        <Board board={this.props.opposingPlayer["board"]} />
                     </div>
                     <div className="player-resource-area">
                         <div className="health-section">{this.props.opposingPlayer.health}</div>
                         <div className="deck-pile-section">
-                            <Deck deck={this.props.opposingPlayer.cardAreas["draw"]} />
-                            <Discard discard={this.props.opposingPlayer.cardAreas["discard"]} />
+                            <Deck deck={this.props.opposingPlayer["draw"]} />
+                            <Discard discard={this.props.opposingPlayer["discard"]} />
                         </div>
                         <div className="resource-section">{this.props.opposingPlayer.attack}</div>
                     </div>
@@ -39,19 +50,23 @@ class PlayArea extends React.Component {
                 <div className="current-player-container">
                     <div className="active-card-area">
                         <div className="played-card-area">
-                        <Board board={this.props.player.cardAreas["board"]} />
-                        <CardPile title="Spell Area" cards={this.props.player.cardAreas["spellArea"]}/>
+                        <Board board={this.props.currentPlayerBoard} />
+                        <CardPile title="Spell Area" cards={this.props.currentPlayerSpellArea}/>
                         </div>
-                        <Hand hand={this.props.player.cardAreas["hand"]} />
+                        <div>
+                        <Hand hand={this.props.currentPlayerHand} />
+                        </div>
                     </div>
                     <div className="player-resource-area">
-                        <div className="health-section">{this.props.player.health}</div>
+                        <div className="health-section">{this.props.currentPlayer.health}</div>
                         <div className="deck-pile-section">
-                            <Deck deck={this.props.player.cardAreas["draw"]} />
-                            <Discard discard={this.props.player.cardAreas["discard"]} />
+                            <Deck deck={this.props.currentPlayerDeck} />
+                            <Discard discard={this.props.currentPlayerDiscard} />
                         </div>
-                        <div className="resource-section">{this.props.player.attack}</div>
+                        <div className="resource-section">{this.props.currentPlayer.attack}</div>
                     </div>
+                    <button type="submit" className="btn btn-primary" onClick={this.drawCard}>Draw</button>
+
                 </div>
             </div>
         )
@@ -59,13 +74,15 @@ class PlayArea extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    const currentPlayerId = state.turnInfo.currentPlayerId;
-    const opposingPlayerId = state.turnInfo.opposingPlayerId;
-    const player = state.players.find(player => player.id === currentPlayerId);
-    const opposingPlayer = state.players.find(player => player.id === opposingPlayerId);
+    console.log(state);
     return {
-        player: player,
-        opposingPlayer: opposingPlayer
+        currentPlayerDeck: state.players[0]["draw"],
+        currentPlayerHand: state.players[0]["hand"],
+        currentPlayerDiscard: state.players[0]["discard"],
+        currentPlayerBoard: state.players[0]["board"],
+        currentPlayerSpellArea: state.players[0]["spellArea"],
+        currentPlayer: state.players[0],
+        opposingPlayer: state.players[1]
     };
 }
 
