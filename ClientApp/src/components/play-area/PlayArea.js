@@ -9,80 +9,70 @@ import Discard from '../discard/Discard';
 import CardPile from '../card-pile/CardPile';
 import './PlayArea.css';
 
+const PlayerArea = ({ player, opponent }) => {
+    let activeSection;
+    if(opponent) {
+        activeSection = <div>
+        <div>
+            <Hand hand={[]} front={false}/>
+            </div>
+            <div className="played-card-area">
+            <Board board={[]} />
+            <CardPile title="Spell Area" cards={[]}/>
+            </div>
+        </div>;
+    } else {
+        activeSection = <div>
+                        <div className="played-card-area">
+                        <Board board={[]} />
+                        <CardPile title="Spell Area" cards={[]}/>
+                        </div>
+                        <div>
+                        <Hand hand={[]} front={true}/>
+                        </div>
+                    </div>;
+    };
+
+    return (
+                <div className="opposing-player-container">
+                    <div>
+                       {activeSection}
+                    </div>
+                    <div className="player-resource-area">
+                        <div className="health-section">20</div>
+                        <div className="deck-pile-section">
+                            <Deck deck={[]} />
+                            <Discard discard={[]} />
+                        </div>
+                        <div className="resource-section">{[]}</div>
+                    </div>
+                </div>
+    );
+}
+
+
 class PlayArea extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
         };
-        this.drawCard = this.drawCard.bind(this);
-    }
-
-    drawCard(event) {
-        event.preventDefault();
-        if (this.props.currentPlayerDeck.length === 0) { return; }
-        let cardDrawInfo = {
-            drawNum: 1,
-            playerId: this.props.currentPlayer.id
-        };
-        this.props.actions.drawCard(cardDrawInfo);
     }
 
     render() {
         return (
             <div className="play-area-container">
-                <div className="opposing-player-container">
-                    <div>
-                        <Hand hand={this.props.opposingPlayer["hand"]} front={false}/>
-                        <Board board={this.props.opposingPlayer["board"]} />
-                    </div>
-                    <div className="player-resource-area">
-                        <div className="health-section">{this.props.opposingPlayer.health}</div>
-                        <div className="deck-pile-section">
-                            <Deck deck={this.props.opposingPlayer["draw"]} />
-                            <Discard discard={this.props.opposingPlayer["discard"]} />
-                        </div>
-                        <div className="resource-section">{this.props.opposingPlayer.attack}</div>
-                    </div>
-                </div>
+                <PlayerArea opponent={true} />
                 <div className="shared-area-container">
                     Shared Board
                 </div>
-                <div className="current-player-container">
-                    <div className="active-card-area">
-                        <div className="played-card-area">
-                        <Board board={this.props.currentPlayerBoard} />
-                        <CardPile title="Spell Area" cards={this.props.currentPlayerSpellArea}/>
-                        </div>
-                        <div>
-                        <Hand hand={this.props.currentPlayerHand} />
-                        </div>
-                    </div>
-                    <div className="player-resource-area">
-                        <div className="health-section">{this.props.currentPlayer.health}</div>
-                        <div className="deck-pile-section">
-                            <Deck deck={this.props.currentPlayerDeck} />
-                            <Discard discard={this.props.currentPlayerDiscard} />
-                        </div>
-                        <div className="resource-section">{this.props.currentPlayer.attack}</div>
-                    </div>
-                    <button type="submit" className="btn btn-primary" onClick={this.drawCard}>Draw</button>
-
-                </div>
+                <PlayerArea opponent={false}/>
             </div>
         )
     }
 }
 
 function mapStateToProps(state, ownProps) {
-    console.log(state);
     return {
-        currentPlayerDeck: state.players[0]["draw"],
-        currentPlayerHand: state.players[0]["hand"],
-        currentPlayerDiscard: state.players[0]["discard"],
-        currentPlayerBoard: state.players[0]["board"],
-        currentPlayerSpellArea: state.players[0]["spellArea"],
-        currentPlayer: state.players[0],
-        opposingPlayer: state.players[1]
     };
 }
 
