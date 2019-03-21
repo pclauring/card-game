@@ -9,44 +9,44 @@ import Discard from '../discard/Discard';
 import CardPile from '../card-pile/CardPile';
 import './PlayArea.css';
 
-const PlayerArea = ({ player, opponent }) => {
+const PlayerActiveSection = ({ player, opponent }) => {
     let activeSection;
-    if(opponent) {
+    if (opponent) {
         activeSection = <div>
-        <div>
-            <Hand hand={[]} front={false}/>
+            <div>
+                <Hand hand={[]} front={false} />
             </div>
             <div className="played-card-area">
-            <Board board={[]} />
-            <CardPile title="Spell Area" cards={[]}/>
+                <Board board={[]} />
+                <CardPile title="Spell Area" cards={[]} />
             </div>
         </div>;
     } else {
         activeSection = <div>
-                        <div className="played-card-area">
-                        <Board board={[]} />
-                        <CardPile title="Spell Area" cards={[]}/>
-                        </div>
-                        <div>
-                        <Hand hand={[]} front={true}/>
-                        </div>
-                    </div>;
+            <div className="played-card-area">
+                <Board board={[]} />
+                <CardPile title="Spell Area" cards={[]} />
+            </div>
+            <div>
+                <Hand hand={[]} front={true} />
+            </div>
+        </div>;
     };
 
     return (
-                <div className="opposing-player-container">
-                    <div>
-                       {activeSection}
-                    </div>
-                    <div className="player-resource-area">
-                        <div className="health-section">20</div>
-                        <div className="deck-pile-section">
-                            <Deck deck={[]} />
-                            <Discard discard={[]} />
-                        </div>
-                        <div className="resource-section">{[]}</div>
-                    </div>
+        <div className="opposing-player-container">
+            <div>
+                {activeSection}
+            </div>
+            <div className="player-resource-area">
+                <div className="health-section">20</div>
+                <div className="deck-pile-section">
+                    <Deck deck={[]} />
+                    <Discard discard={[]} />
                 </div>
+                <div className="resource-section">{[]}</div>
+            </div>
+        </div>
     );
 }
 
@@ -61,11 +61,10 @@ class PlayArea extends React.Component {
     render() {
         return (
             <div className="play-area-container">
-                <PlayerArea opponent={true} />
+                <PlayerActiveSection opponent={true} />
                 <div className="shared-area-container">
-                    Shared Board
                 </div>
-                <PlayerArea opponent={false}/>
+                <PlayerActiveSection opponent={false} />
             </div>
         )
     }
