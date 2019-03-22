@@ -1,13 +1,19 @@
 import * as types from '../actions/deckBuilderActionTypes';
 import initialState from './deckBuilderInitialState';
 
-export default function cardReducer(state = [], action) {
+
+
+export default function cardReducer(state = initialState.cards, action) {
     switch (action.type) {
         case types.UPDATE_CARD: {
-            return [
-                ...state.filter(card => card !== action.card.id), 
-               Object.assign({}, action.card)
-            ];
+            //update cards
+            const card = state[action.card.id];
+            return {
+                ...state, 
+                [card.id]: {
+                    ...action.card
+                }
+            };
         }
         default:
         return state;

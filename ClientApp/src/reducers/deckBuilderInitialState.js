@@ -1,117 +1,81 @@
-export const turnPhase = {
-    MAIN: 1,
-    CLEANUP: 2,
-    DRAW: 3,
-};
-
 export default {
-        players: [
-            {
-                id: 1,
-                health: 20,
-                attack: 0,
-                buy: 0,
-                handSize: 5,
-                draw: [{
-                    id: "Hearts-4",
-                    index: 17,
-                    location: "DECK",
-                    suit: "Hearts",
-                    value: 4,
-                }],
-                discard: [{
-                    id: "Hearts-4",
-                    index: 17,
-                    location: "DECK",
-                    suit: "Hearts",
-                    value: 4,
-                }],
-                board: [{
-                    id: "Hearts-4",
-                    index: 17,
-                    location: "DECK",
-                    suit: "Hearts",
-                    value: 4,
-                }],
-                hand: [
-                    {
-                        id: "Diamonds-3",
-                        index: 3,
-                        location: "DECK",
-                        suit: "Diamonds",
-                        value: 3,
-                    },
-                    {
-                        id: "Diamonds-3",
-                        index: 3,
-                        location: "DECK",
-                        suit: "Diamonds",
-                        value: 3,
-                    }],
-                spellArea: [{
-                    id: "Hearts-4",
-                    index: 17,
-                    location: "DECK",
-                    suit: "Hearts",
-                    value: 4,
-                }],
-            },
-            {
-                id: 2,
-                health: 20,
-                attack: 0,
-                buy: 0,
-                handSize: 5,
-                draw: [{
-                    id: "Hearts-4",
-                    index: 17,
-                    location: "DECK",
-                    suit: "Hearts",
-                    value: 4,
-                }],
-                discard: [{
-                    id: "Hearts-4",
-                    index: 17,
-                    location: "DECK",
-                    suit: "Hearts",
-                    value: 4,
-                }],
-                board: [{
-                    id: "Hearts-4",
-                    index: 17,
-                    location: "DECK",
-                    suit: "Hearts",
-                    value: 4,
-                }],
-                hand: [{
-                    id: "Hearts-4",
-                    index: 17,
-                    location: "DECK",
-                    suit: "Hearts",
-                    value: 4,
-                }],
-                spellArea: [{
-                    id: "Hearts-4",
-                    index: 17,
-                    location: "DECK",
-                    suit: "Hearts",
-                    value: 4,
-                }],
-            }
-        ],
-
-        turns: {
-            count: 0,
-            currentPlayerId: 1,
-            opposingPlayerId: 2,
-            currentTurnPhase: turnPhase.MAIN,
+    players: {
+        "player1": {
+            id: "player1",
+            health: 20,
+            attack: 0,
+            buy: 0,
+            handSize: 5,
         },
-
-        playArea: {
-            specialAttackStore: [],
-            specialBuyStore: [],
-            storeDeck: [],
-            storeBoard: [],
-            storeExile: []
+        "player2": {
+            id: "player2",
+            health: 20,
+            attack: 0,
+            buy: 0,
+            handSize: 5,
         }
+    },
+
+    cards: {
+        "card-1": {
+            id: "card-1",
+            name: "soldier",
+            location: "DECK",
+            owner: "player1",
+            value: 0,
+            cost: 1,
+            damage: 1,
+        },
+        "card-2": {
+            id: "card-2",
+            name: "soldier",
+            location: "DECK",
+            owner: "player1",
+            value: 0,
+            cost: 1,
+            damage: 1,
+        },
+        "card-3": {
+            id: "card-3",
+            name: "soldier",
+            location: "DECK",
+            owner: "player1",
+            value: 0,
+            cost: 1,
+            damage: 1,
+        },
+        "card-4": {
+            id: "card-4",
+            name: "wizard",
+            location: "DECK",
+            owner: "player1",
+            value: 0,
+            cost: 1,
+            damage: 1,
+        },
+        "card-5": {
+            id: "card-5",
+            name: "wizard",
+            location: "DECK",
+            owner: "player1",
+            value: 0,
+            cost: 1,
+            damage: 1,
+        }
+    },
+
+    turns: {
+        count: 0,
+        currentPlayerId: "player1",
+        opposingPlayerId: "player2",
+        currentTurnPhase: "MAIN",
+    },
+
+    playArea: {
+        specialAttackStore: [],
+        specialBuyStore: [],
+        storeDeck: [],
+        storeBoard: [],
+        storeExile: []
+    }
 };
