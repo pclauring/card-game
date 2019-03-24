@@ -1,5 +1,6 @@
 export default {
     players: {
+        ById: {
         "player1": {
             id: "player1",
             health: 20,
@@ -15,6 +16,8 @@ export default {
             handSize: 5,
         }
     },
+    AllIds: ["player1", "player2"]
+},
 
     cards: {
         ById: {

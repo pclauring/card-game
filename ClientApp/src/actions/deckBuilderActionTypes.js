@@ -1,1 +1,2 @@
 export const UPDATE_CARD = 'UPDATE_CARD';
+export const UPDATE_PLAYER = 'UPDATE_PLAYER';
