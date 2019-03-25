@@ -42,7 +42,7 @@ export default {
             "card-3": {
                 id: "card-3",
                 name: "soldier",
-                location: "DECK",
+                location: "HAND",
                 owner: "player1",
                 value: 0,
                 cost: 1,
@@ -60,7 +60,7 @@ export default {
             "card-5": {
                 id: "card-5",
                 name: "wizard",
-                location: "DECK",
+                location: "HAND",
                 owner: "player1",
                 value: 0,
                 cost: 1,
