@@ -1,6 +1,6 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
-import {shuffle} from '../selectors/selectors';
+import {shuffle} from '../selectors/cardGameSelectors';
 
 export default function gameReducer(state = initialState.game, action) {
     switch (action.type) {

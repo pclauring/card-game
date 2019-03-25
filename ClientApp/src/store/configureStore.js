@@ -12,8 +12,10 @@ import cards from '../reducers/cardReducer';
 
 export default function configureStore (history, initialState) {
   const reducers = {
+    //Deck-Builder State
     players: players,
     cards: cards,
+    //Card Game State
     hand: hand,
     opponentHand: opponentHand,
     game: game,

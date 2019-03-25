@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as playerActions from '../../actions/playerActions';
+import * as deckBuilderActions from '../../actions/deckBuilderActions';
 import Hand from '../hand/Hand';
 import Board from '../board/Board';
 import Deck from '../deck/Deck';
 import Discard from '../discard/Discard';
 import CardPile from '../card-pile/CardPile';
 import './PlayArea.css';
+import { getCards } from '../../selectors/cardSelector';
 
 const PlayerActiveSection = ({ player, opponent }) => {
     let activeSection;
@@ -82,6 +83,7 @@ function mapStateToProps(state, ownProps) {
     const cards = state.cards.AllIds.map(id => state.cards.ById[id]);
     const players = state.players.AllIds.map(id => state.players.ById[id]);
     console.log(players);
+    console.log(getCards(state));
     const cardsById = getCardsById(cards, "player1");
     const playerById = getPlayerById(players, "player1");
     console.log(playerById);
@@ -93,7 +95,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(playerActions, dispatch)
+        actions: bindActionCreators(deckBuilderActions, dispatch)
     };
 }
 
