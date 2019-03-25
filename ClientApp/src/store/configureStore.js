@@ -8,7 +8,7 @@ import turn from '../reducers/turnReducer';
 import turnInfo from '../reducers/turnInfoReducer';
 import opponentHand from '../reducers/opponentHandReducer';
 import players from '../reducers/playerReducer';
-import cards from '../reducers/cardReducer';
+import cards from '../reducers/cardsReducer';
 
 export default function configureStore (history, initialState) {
   const reducers = {

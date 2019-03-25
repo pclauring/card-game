@@ -70,7 +70,7 @@ class PlayArea extends React.Component {
         )
     }
 }
-const getCardsById = (cards, playerId) => {
+const getCardsByPlayerId = (cards, playerId) => {
     return cards.filter(card => card.owner === playerId);
 }
 
@@ -86,12 +86,12 @@ function mapStateToProps(state, ownProps) {
     const cards = state.cards.AllIds.map(id => state.cards.ById[id]);
     const players = state.players.AllIds.map(id => state.players.ById[id]);
     console.log(getCards(state));
-    const cardsById = getCardsById(cards, "player1");
-    const playerById = getPlayerById(players, "player1");
-    const cardsByLocation = getCardsByLocation(cardsById, "HAND");
+    const cardsByPlayerId = getCardsByPlayerId(cards, "player1");
+    const playersById = getPlayerById(players, "player1");
+    const cardsByLocation = getCardsByLocation(cardsByPlayerId, "HAND");
     console.log(cardsByLocation);
     return {
-        cards: cardsById
+        cards: cardsByPlayerId
     };
 }
 

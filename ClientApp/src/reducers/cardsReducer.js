@@ -20,6 +20,9 @@ function cardByIdReducer(state = initialState.cards.ById, action) {
     }
 }
 
+//TODO break out ById to cardReducer?
+// export const getCard = (state, id) => state[id];
+
 function cardAllIdsReducer(state = initialState.cards.AllIds, action){
     switch (action.type) {
         default:
