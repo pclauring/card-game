@@ -2,7 +2,6 @@ import * as types from '../actions/deckBuilderActionTypes';
 import initialState from './deckBuilderInitialState';
 import { combineReducers } from 'redux';
 
-
 function cardByIdReducer(state = initialState.cards.ById, action) {
     switch (action.type) {
         case types.UPDATE_CARD: {
@@ -22,6 +21,10 @@ function cardByIdReducer(state = initialState.cards.ById, action) {
 
 //TODO break out ById to cardReducer
 export const getCard = (state, id) => state.ById[id];
+
+export const getAllCards = (state) => {
+    state.AllIds.map(id => state.ById[id]);
+}
 
 function cardAllIdsReducer(state = initialState.cards.AllIds, action){
     switch (action.type) {

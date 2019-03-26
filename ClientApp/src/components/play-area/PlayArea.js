@@ -70,29 +70,29 @@ class PlayArea extends React.Component {
         )
     }
 }
-const getCardsByPlayerId = (cards, playerId) => {
-    return cards.filter(card => card.owner === playerId);
-}
 
-const getCardsByLocation = (cards, location) => {
-    return cards.filter(card => card.location === location);
-}
-
-const getPlayerById = (players, playerId) => {
-    return players.filter(player => player.id === playerId);
+export const getCardsByLocation = (cards, location) => {
+    switch(location){
+        case "DRAW":
+        return cards.filter(card => card.location === "DRAW");
+        case "DISCARD":
+        return cards.filter(card => card.location === "DISCARD");
+        case "BOARD":
+        return cards.filter(card => card.location === "BOARD");
+        case "SPELL_AREA":
+        return cards.filter(card => card.location === "SPELL_AREA");
+        case "HAND":
+        return cards.filter(card => card.location === "HAND");
+        default:
+        throw new Error(`Unknown Location: ${location}`);
+    }
 }
 
 function mapStateToProps(state, ownProps) {
-    const cards = state.cards.AllIds.map(id => state.cards.ById[id]);
-    const players = state.players.AllIds.map(id => state.players.ById[id]);
-    console.log(cardSelector.getCards(state));
-    console.log(cardSelector.getAllCardsForCurrentPlayer(state));
-    const cardsByPlayerId = getCardsByPlayerId(cards, "player1");
-    const playersById = getPlayerById(players, "player1");
-    const cardsByLocation = getCardsByLocation(cardsByPlayerId, "HAND");
-    console.log(cardsByLocation);
+    
     return {
-        cards: cardsByPlayerId
+        currentPlayerCards: cardSelector.getAllCardsForCurrentPlayer(state),
+        opposingPlayerCards: cardSelector.getAllCardsForOpposingPlayer(state)
     };
 }
 
