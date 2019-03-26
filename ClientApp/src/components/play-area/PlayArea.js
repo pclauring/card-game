@@ -8,7 +8,7 @@ import Deck from '../deck/Deck';
 import Discard from '../discard/Discard';
 import CardPile from '../card-pile/CardPile';
 import './PlayArea.css';
-import { getCards } from '../../selectors/cardSelector';
+import * as cardSelector from '../../selectors/cardSelector';
 
 const PlayerActiveSection = ({ player, opponent }) => {
     let activeSection;
@@ -85,7 +85,8 @@ const getPlayerById = (players, playerId) => {
 function mapStateToProps(state, ownProps) {
     const cards = state.cards.AllIds.map(id => state.cards.ById[id]);
     const players = state.players.AllIds.map(id => state.players.ById[id]);
-    console.log(getCards(state));
+    console.log(cardSelector.getCards(state));
+    console.log(cardSelector.getAllCardsForCurrentPlayer(state));
     const cardsByPlayerId = getCardsByPlayerId(cards, "player1");
     const playersById = getPlayerById(players, "player1");
     const cardsByLocation = getCardsByLocation(cardsByPlayerId, "HAND");

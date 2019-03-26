@@ -20,8 +20,8 @@ function cardByIdReducer(state = initialState.cards.ById, action) {
     }
 }
 
-//TODO break out ById to cardReducer?
-// export const getCard = (state, id) => state[id];
+//TODO break out ById to cardReducer
+export const getCard = (state, id) => state.ById[id];
 
 function cardAllIdsReducer(state = initialState.cards.AllIds, action){
     switch (action.type) {
@@ -30,9 +30,9 @@ function cardAllIdsReducer(state = initialState.cards.AllIds, action){
     }
 }
 
-const cardReducer = combineReducers({
+const cardsReducer = combineReducers({
     ById: cardByIdReducer,
     AllIds: cardAllIdsReducer
 })
 
-export default cardReducer
+export default cardsReducer

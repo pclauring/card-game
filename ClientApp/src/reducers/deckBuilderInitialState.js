@@ -34,7 +34,7 @@ export default {
                 id: "card-2",
                 name: "soldier",
                 location: "DECK",
-                owner: "player1",
+                owner: "player2",
                 value: 0,
                 cost: 1,
                 damage: 1,
@@ -71,7 +71,7 @@ export default {
         AllIds: ["card-1", "card-2", "card-3", "card-4", "card-5"]
     },
 
-    turns: {
+    turnState: {
         count: 0,
         currentPlayerId: "player1",
         opposingPlayerId: "player2",
