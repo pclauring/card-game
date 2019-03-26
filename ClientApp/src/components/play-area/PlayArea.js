@@ -2,54 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as deckBuilderActions from '../../actions/deckBuilderActions';
-import Hand from '../hand/Hand';
-import Board from '../board/Board';
-import Deck from '../deck/Deck';
-import Discard from '../discard/Discard';
-import CardPile from '../card-pile/CardPile';
+import PlayerActiveSection from './PlayerActiveSection';
 import './PlayArea.css';
 import * as cardSelector from '../../selectors/cardSelector';
 
-const PlayerActiveSection = ({ player, opponent }) => {
-    let activeSection;
-    if (opponent) {
-        activeSection = <div>
-            <div>
-                <Hand hand={[]} front={false} />
-            </div>
-            <div className="played-card-area">
-                <Board board={[]} />
-                <CardPile title="Spell Area" cards={[]} />
-            </div>
-        </div>;
-    } else {
-        activeSection = <div>
-            <div className="played-card-area">
-                <Board board={[]} />
-                <CardPile title="Spell Area" cards={[]} />
-            </div>
-            <div>
-                <Hand hand={[]} front={true} />
-            </div>
-        </div>;
-    };
-
-    return (
-        <div className="opposing-player-container">
-            <div>
-                {activeSection}
-            </div>
-            <div className="player-resource-area">
-                <div className="health-section">20</div>
-                <div className="deck-pile-section">
-                    <Deck deck={[]} />
-                    <Discard discard={[]} />
-                </div>
-                <div className="resource-section">{[]}</div>
-            </div>
-        </div>
-    );
-}
 
 
 class PlayArea extends React.Component {
@@ -89,10 +45,14 @@ export const getCardsByLocation = (cards, location) => {
 }
 
 function mapStateToProps(state, ownProps) {
-    
+    let currentPlayerCards = cardSelector.getAllCardsForCurrentPlayer(state);
+    let opponentPlayerCards = cardSelector.getAllCardsForOpposingPlayer(state);
+
     return {
-        currentPlayerCards: cardSelector.getAllCardsForCurrentPlayer(state),
-        opposingPlayerCards: cardSelector.getAllCardsForOpposingPlayer(state)
+        currentPlayer: state.players.ById[state.turnState.currentPlayerId],
+        opposingPlayer: state.players.ById[state.turnState.opposingPlayerId],
+        currentPlayerCards: currentPlayerCards,
+        opponentPlayerCards: opponentPlayerCards
     };
 }
 

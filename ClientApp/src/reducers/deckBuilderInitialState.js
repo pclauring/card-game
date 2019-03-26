@@ -7,6 +7,7 @@ export default {
             attack: 0,
             buy: 0,
             handSize: 5,
+            cards: ["card-1", "card-3","card-5"]
         },
         "player2": {
             id: "player2",
@@ -14,6 +15,7 @@ export default {
             attack: 0,
             buy: 0,
             handSize: 5,
+            cards: ["card-2", "card-4"]
         }
     },
     AllIds: ["player1", "player2"]
@@ -52,7 +54,7 @@ export default {
                 id: "card-4",
                 name: "wizard",
                 location: "DECK",
-                owner: "player1",
+                owner: "player2",
                 value: 0,
                 cost: 1,
                 damage: 1,
