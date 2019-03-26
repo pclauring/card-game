@@ -1,13 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as deckBuilderActions from '../../actions/deckBuilderActions';
 import Hand from '../hand/Hand';
 import Board from '../board/Board';
 import Deck from '../deck/Deck';
 import Discard from '../discard/Discard';
 import CardPile from '../card-pile/CardPile';
+import * as cardSelector from '../../selectors/cardSelector';
 
-const PlayerActiveSection = ({ player, opponent}) => {
+
+
+class PlayerActiveSection extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+        };
+    }
+    
+    render() {
+
     let activeSection;
-    if (opponent) {
+    if (this.props.opponent) {
         activeSection = <div>
             <div>
                 <Hand hand={[]} front={false} />
@@ -28,7 +42,6 @@ const PlayerActiveSection = ({ player, opponent}) => {
             </div>
         </div>;
     };
-
     return (
         <div className="opposing-player-container">
             <div>
@@ -43,7 +56,22 @@ const PlayerActiveSection = ({ player, opponent}) => {
                 <div className="resource-section">{[]}</div>
             </div>
         </div>
-    );
+    )
+    }
 }
 
-export default PlayerActiveSection;
+
+function mapStateToProps(state, props) {
+    let cards = cardSelector.getCardsbyPlayerId(state, props);
+    console.log(cards);
+    return {
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(deckBuilderActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerActiveSection);

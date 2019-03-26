@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import * as deckBuilderActions from '../../actions/deckBuilderActions';
 import PlayerActiveSection from './PlayerActiveSection';
 import './PlayArea.css';
-import * as cardSelector from '../../selectors/cardSelector';
 
 
 
@@ -18,10 +17,10 @@ class PlayArea extends React.Component {
     render() {
         return (
             <div className="play-area-container">
-                <PlayerActiveSection opponent={true} />
+                <PlayerActiveSection opponent={true} playerId={this.props.opposingPlayerId}/>
                 <div className="shared-area-container">
                 </div>
-                <PlayerActiveSection opponent={false} />
+                <PlayerActiveSection opponent={false} playerId={this.props.currentPlayerId}/>
             </div>
         )
     }
@@ -45,14 +44,9 @@ export const getCardsByLocation = (cards, location) => {
 }
 
 function mapStateToProps(state, ownProps) {
-    let currentPlayerCards = cardSelector.getAllCardsForCurrentPlayer(state);
-    let opponentPlayerCards = cardSelector.getAllCardsForOpposingPlayer(state);
-
     return {
-        currentPlayer: state.players.ById[state.turnState.currentPlayerId],
-        opposingPlayer: state.players.ById[state.turnState.opposingPlayerId],
-        currentPlayerCards: currentPlayerCards,
-        opponentPlayerCards: opponentPlayerCards
+        currentPlayerId: state.turnState.currentPlayerId,
+        opposingPlayerId: state.turnState.opposingPlayerId
     };
 }
 

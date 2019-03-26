@@ -5,6 +5,15 @@ const getAllCardIds = (state) => state.cards.AllIds;
 const getCurrentPlayerId = (state) => state.turnState.currentPlayerId;
 const getOpposingPlayerId = (state) => state.turnState.opposingPlayerId;
 
+const getCardIdsByPlayerId = (state, props) => state.players.ById[props.playerId].cards;
+
+export const getCardsbyPlayerId = createSelector(
+    [getAllCards, getCardIdsByPlayerId],
+    (cards, ids) => {
+        return ids.map(id => cards[id]);
+    }
+);
+
 export const getCards = createSelector(
     [getAllCards, getAllCardIds],
     (cards, ids) => {
